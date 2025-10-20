@@ -1,0 +1,104 @@
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Footer Header -->
+    <div class="footer-header" *ngIf="personalInfo$ | async as personalInfo">
+      <div class="footer-brand">
+        <h3 class="brand-name">{{ personalInfo.name }}</h3>
+        <p class="brand-tagline">{{ personalInfo.title }}</p>
+      </div>
+      <button class="scroll-top-btn" (click)="scrollToTop()" title="Back to top">
+        <span class="scroll-icon">↑</span>
+      </button>
+    </div>
+
+    <!-- Footer Body -->
+    <div class="footer-body">
+      <!-- Quick Navigation -->
+      <div class="footer-section">
+        <h4 class="section-title">
+          <span class="section-icon">🧭</span>
+          Quick Links
+        </h4>
+        <nav class="footer-nav">
+          <a *ngFor="let link of navigationLinks"
+             [routerLink]="link.path"
+             class="nav-link"
+             routerLinkActive="active">
+            <span class="nav-icon">{{ link.icon }}</span>
+            {{ link.label }}
+          </a>
+        </nav>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-section" *ngIf="personalInfo$ | async as personalInfo">
+        <h4 class="section-title">
+          <span class="section-icon">📦</span>
+          Contact
+        </h4>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <button class="contact-link" (click)="openEmailClient(personalInfo.email)">
+              {{ personalInfo.email }}
+            </button>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📱</span>
+            <a [href]="'tel:' + personalInfo.phone" class="contact-link">
+              {{ personalInfo.phone }}
+            </a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span class="contact-text">{{ personalInfo.location }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="footer-section" *ngIf="personalInfo$ | async as personalInfo">
+        <h4 class="section-title">
+          <span class="section-icon">🌐</span>
+          Connect
+        </h4>
+        <div class="social-links">
+          <button class="social-link" (click)="openLinkedIn(personalInfo.linkedin)" title="LinkedIn">
+            <span class="social-icon">🔗</span>
+            <span class="social-label">LinkedIn</span>
+          </button>
+          <button class="social-link" (click)="openEmailClient(personalInfo.email)" title="Email">
+            <span class="social-icon">📧</span>
+            <span class="social-label">Email</span>
+          </button>
+        </div>
+        <div class="availability-status">
+          <span class="status-indicator"></span>
+          <span class="status-text">Available for new opportunities</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="footer-divider"></div>
+      <div class="footer-meta">
+        <div class="copyright">
+          <span class="copyright-icon">©</span>
+          {{ currentYear }} {{ (personalInfo$ | async)?.name }}. All rights reserved.
+        </div>
+        <div class="footer-note">
+          <span class="note-icon">💫</span>
+          Built with Angular & TypeScript
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Decoration -->
+  <div class="footer-decoration">
+    <div class="decoration-grid">
+      <div class="grid-dot" *ngFor="let dot of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"></div>
+    </div>
+  </div>
+</footer>

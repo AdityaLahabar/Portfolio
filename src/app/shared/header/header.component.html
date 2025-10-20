@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <div class="container">
+    <a routerLink="/home" class="navbar-brand">
+      <span class="brand-name">Aditya Lahabar</span>
+    </a>
+
+    <button class="mobile-toggle" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen">
+      <span class="hamburger" [class.active]="isMenuOpen"></span>
+    </button>
+
+    <div class="navbar-menu" [class.active]="isMenuOpen">
+      <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()" class="nav-link">Home</a>
+      <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()" class="nav-link">About</a>
+      <a routerLink="/skills" routerLinkActive="active" (click)="closeMenu()" class="nav-link">Skills</a>
+      <a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()" class="nav-link">Projects</a>
+      <a routerLink="/achievements" routerLinkActive="active" (click)="closeMenu()" class="nav-link">Achievements</a>
+      <a routerLink="/education" routerLinkActive="active" (click)="closeMenu()" class="nav-link">Education</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()" class="nav-link">Contact</a>
+
+      <button class="theme-toggle" (click)="toggleTheme()" [attr.aria-label]="themeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
+        <span class="theme-icon">{{ themeService.isDarkMode() ? '☀️' : '🌙' }}</span>
+      </button>
+    </div>
+  </div>
+</nav>

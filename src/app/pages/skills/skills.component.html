@@ -1,0 +1,83 @@
+<div class="skills-container">
+  <div class="page-header">
+    <h1 class="page-title">Technical Skills</h1>
+    <p class="page-subtitle">Expertise across frontend, backend, and development tools</p>
+  </div>
+
+  <div class="content-wrapper">
+    <!-- Frontend Skills -->
+    <section class="skills-section">
+      <h2 class="section-title">
+        <span class="section-icon">💻</span>
+        Frontend Development
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-card" *ngFor="let skill of frontendSkills$ | async; trackBy: trackBySkill"
+             [class.animate]="isVisible">
+          <div class="skill-header">
+            <div class="skill-info">
+              <span class="skill-icon">{{ getSkillIcon(skill.icon) }}</span>
+              <h3 class="skill-name">{{ skill.name }}</h3>
+            </div>
+            <span class="skill-percentage">{{ skill.level }}%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress"
+                 [style.width.%]="isVisible ? skill.level : 0"
+                 [attr.data-level]="skill.level"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Backend Skills -->
+    <section class="skills-section">
+      <h2 class="section-title">
+        <span class="section-icon">⚙️</span>
+        Backend Development
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-card" *ngFor="let skill of backendSkills$ | async; trackBy: trackBySkill"
+             [class.animate]="isVisible">
+          <div class="skill-header">
+            <div class="skill-info">
+              <span class="skill-icon">{{ getSkillIcon(skill.icon) }}</span>
+              <h3 class="skill-name">{{ skill.name }}</h3>
+            </div>
+            <span class="skill-percentage">{{ skill.level }}%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress"
+                 [style.width.%]="isVisible ? skill.level : 0"
+                 [attr.data-level]="skill.level"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools & Technologies -->
+    <section class="skills-section">
+      <h2 class="section-title">
+        <span class="section-icon">🛠️</span>
+        Tools & Technologies
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-card" *ngFor="let skill of toolsSkills$ | async; trackBy: trackBySkill"
+             [class.animate]="isVisible">
+          <div class="skill-header">
+            <div class="skill-info">
+              <span class="skill-icon">{{ getSkillIcon(skill.icon) }}</span>
+              <h3 class="skill-name">{{ skill.name }}</h3>
+            </div>
+            <span class="skill-percentage">{{ skill.level }}%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress"
+                 [style.width.%]="isVisible ? skill.level : 0"
+                 [attr.data-level]="skill.level"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

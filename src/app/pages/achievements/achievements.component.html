@@ -1,0 +1,99 @@
+<div class="achievements-container">
+  <div class="page-header">
+    <h1 class="page-title">Achievements</h1>
+    <p class="page-subtitle">Certifications, awards, and professional milestones</p>
+  </div>
+
+  <div class="content-wrapper">
+    <!-- Awards Section -->
+    <section class="achievements-section" *ngIf="(awards$ | async)?.length">
+      <h2 class="section-title">
+        <span class="section-icon">🏅</span>
+        Awards & Recognition
+      </h2>
+
+      <div class="timeline">
+        <div class="timeline-item"
+             *ngFor="let award of awards$ | async; trackBy: trackByAchievement; let i = index"
+             [class.animate]="isVisible"
+             [style.animation-delay.s]="i * 0.1">
+          <div class="timeline-marker award-marker">
+            <span class="marker-icon">{{ getAchievementIcon(award.type) }}</span>
+          </div>
+          <div class="timeline-content">
+            <div class="achievement-header">
+              <div>
+                <h3 class="achievement-title">{{ award.title }}</h3>
+                <p class="achievement-issuer">{{ award.issuer }}</p>
+              </div>
+              <span class="achievement-date">{{ award.date }}</span>
+            </div>
+            <p class="achievement-description" *ngIf="award.description">
+              {{ award.description }}
+            </p>
+            <div class="achievement-badge award-badge">
+              <span class="badge-icon">{{ getAchievementIcon(award.type) }}</span>
+              Award
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="achievements-section" *ngIf="(certifications$ | async)?.length">
+      <h2 class="section-title">
+        <span class="section-icon">🏆</span>
+        Professional Certifications
+      </h2>
+
+      <div class="timeline">
+        <div class="timeline-item"
+             *ngFor="let cert of certifications$ | async; trackBy: trackByAchievement; let i = index"
+             [class.animate]="isVisible"
+             [style.animation-delay.s]="(awards$ | async)?.length ? ((awards$ | async)!.length + i) * 0.1 : i * 0.1">
+          <div class="timeline-marker certification-marker">
+            <span class="marker-icon">{{ getAchievementIcon(cert.type) }}</span>
+          </div>
+          <div class="timeline-content">
+            <div class="achievement-header">
+              <div>
+                <h3 class="achievement-title">{{ cert.title }}</h3>
+                <p class="achievement-issuer">{{ cert.issuer }}</p>
+              </div>
+              <span class="achievement-date">{{ cert.date }}</span>
+            </div>
+            <p class="achievement-description" *ngIf="cert.description">
+              {{ cert.description }}
+            </p>
+            <div class="achievement-badge certification-badge">
+              <span class="badge-icon">{{ getAchievementIcon(cert.type) }}</span>
+              Certification
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">🏅</div>
+          <div class="stat-number">{{ (awards$ | async)?.length || 0 }}</div>
+          <div class="stat-label">Awards</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🏆</div>
+          <div class="stat-number">{{ (certifications$ | async)?.length || 0 }}</div>
+          <div class="stat-label">Certifications</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📅</div>
+          <div class="stat-number">{{ getYearsExperience() }}+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

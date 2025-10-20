@@ -1,0 +1,102 @@
+<div class="education-container">
+  <div class="page-header">
+    <h1 class="page-title">Education</h1>
+    <p class="page-subtitle">Academic foundation and learning journey</p>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="education-grid">
+      <div class="education-card"
+           *ngFor="let edu of education$ | async; trackBy: trackByEducation; let i = index"
+           [class.animate]="isVisible"
+           [style.animation-delay.s]="i * 0.2">
+
+        <!-- Institution Header -->
+        <div class="card-header">
+          <div class="institution-info">
+            <div class="institution-icon">
+              <span class="icon">🎓</span>
+            </div>
+            <div class="institution-details">
+              <h3 class="institution-name">{{ edu.institution }}</h3>
+              <p class="institution-location">
+                <span class="location-icon">📍</span>
+                {{ edu.location }}
+              </p>
+            </div>
+          </div>
+          <div class="duration-badge">
+            {{ edu.startYear }} - {{ edu.endYear }}
+          </div>
+        </div>
+
+        <!-- Degree Information -->
+        <div class="card-content">
+          <div class="degree-section">
+            <div class="field-icon">
+              {{ getFieldIcon(edu.field) }}
+            </div>
+            <div class="degree-info">
+              <h4 class="degree-title">{{ edu.degree }}</h4>
+              <p class="field-name">{{ edu.field }}</p>
+            </div>
+          </div>
+
+          <div class="education-stats">
+            <div class="stat-item">
+              <span class="stat-label">Duration:</span>
+              <span class="stat-value">{{ calculateDuration(edu.startYear, edu.endYear) }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Completed:</span>
+              <span class="stat-value">{{ edu.endYear }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="card-decoration">
+          <div class="decoration-line"></div>
+          <div class="decoration-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary Section -->
+    <section class="education-summary">
+      <div class="summary-card">
+        <h3 class="summary-title">
+          <span class="summary-icon">🏆</span>
+          Academic Highlights
+        </h3>
+        <div class="highlights-grid">
+          <div class="highlight-item">
+            <div class="highlight-icon">📚</div>
+            <div class="highlight-content">
+              <h4>Field of Study</h4>
+              <p>Information Technology with focus on software development and system design</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">💼</div>
+            <div class="highlight-content">
+              <h4>Career Preparation</h4>
+              <p>Strong foundation in programming, databases, and software engineering principles</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🎆</div>
+            <div class="highlight-content">
+              <h4>Professional Growth</h4>
+              <p>Seamless transition from academic knowledge to industry expertise</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
