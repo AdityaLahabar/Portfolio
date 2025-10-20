@@ -138,13 +138,20 @@ export class PortfolioDataService {
       date: '2023',
       type: 'certification'
     },
+     {
+      title: 'Infosys Certified Generative AI Practitioner',
+      issuer: 'Infosys',
+      date: '2025',
+      type: 'certification'
+    },
     {
       title: 'Eminence Award 2024',
       issuer: 'Infosys - Nagpur DC',
       date: '2024',
       type: 'award',
       description: 'Awarded for exceptional performance and contributions'
-    }
+    },
+
   ];
 
   private education: Education[] = [
@@ -155,6 +162,14 @@ export class PortfolioDataService {
       location: 'Nagpur, India',
       startYear: 2017,
       endYear: 2021
+    },
+    {
+      institution: 'Kamla Nehru Mahavidyalaya, Nagpur',
+      degree: 'HSC',
+      field: 'Information Technology',
+      location: 'Nagpur, India',
+      startYear: 2015,
+      endYear: 2017
     }
   ];
 
