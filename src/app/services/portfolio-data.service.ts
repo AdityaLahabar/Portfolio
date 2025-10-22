@@ -13,9 +13,9 @@ export class PortfolioDataService {
     tagline: 'Building high-performance, scalable web applications with Angular',
     email: 'adityalahabar@gmail.com',
     phone: '+91-9168489525',
-    location: 'Nagpur, Maharashtra',
+    location: 'Pune | Nagpur, Maharashtra',
     linkedin: 'https://linkedin.com/in/aditya-lahabar-6a01291a3',
-    bio: 'Passionate Angular Developer with 3+ years of experience at Infosys Limited, specializing in building scalable, user-centric web applications. Expert in multi-tenant architecture, multilingual support, and responsive design. Strong background in Angular 17+, RxJS, and modern web technologies.'
+    bio: 'Passionate Angular Developer with 4+ years of experience at Infosys Limited, specializing in building scalable, user-centric web applications. Expert in multi-tenant architecture, multilingual support, and responsive design. Strong background in Angular 17+, RxJS, and modern web technologies.'
   };
 
   private experiences: Experience[] = [
@@ -104,7 +104,23 @@ export class PortfolioDataService {
       image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800',
       techStack: ['Java', 'Spring Boot', 'Microservices', 'REST APIs', 'PostgreSQL'],
       featured: false
-    }
+    },
+    {
+      id: 5,
+      title: 'ShopSmart – Angular E-commerce',
+      description: 'ShopSmart – Angular E-commerce A sample ecommerce web app built using Angular, showcasing the typical shopping flow: browsing products, adding items to cart, and proceeding to checkout. It provides a clean and modern UI, making it useful both as a demonstration of Angular-based ecommerce design and as a starting point for customization.',
+      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg',
+      techStack: ['Angular', 'RxJS', 'TypeScript', 'Bootstrap', 'REST APIs'],
+      featured: true
+    },
+    {
+      id: 6,
+      title: 'PowerFit Gym Management',
+      description: 'PowerFit Gym Management App A web-based application demonstrating a gym management system built with Angular. The app allows for member and trainer management, scheduling of classes, tracking workouts and payments, and includes a clean, intuitive UI designed for gym staff and administrators to manage daily operations efficiently.',
+      image: 'https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg',
+      techStack: ['Angular', 'RxJS','Bootstrap', 'TypeScript', 'HTML/CSS'],
+      featured: true
+    },
   ];
 
   private achievements: Achievement[] = [
